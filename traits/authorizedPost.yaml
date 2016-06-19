@@ -1,0 +1,12 @@
+authorizedPost:
+  headers:
+    content-type:
+      displayName: Content-Type
+      description: MIME type of document being served.
+      required: true
+      example: "application/json"
+    device-key:
+      displayName: device-key
+      description: Device unique identifier
+      required: true
+      example: "[@Bfgdg324"

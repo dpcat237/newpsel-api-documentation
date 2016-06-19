@@ -1,0 +1,5 @@
+{
+  "code": 409,
+  "message": "User with this email exists",
+  "errors": null
+}

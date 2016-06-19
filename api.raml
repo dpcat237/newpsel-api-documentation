@@ -16,6 +16,11 @@ schemas:
   - InputBodyStructuredTagListModel: !include schemas/methodBodies/tag/inputTagList.json
   - InputBodyStructuredUserLoginModel: !include schemas/methodBodies/user/inputUserLogin.json
   - InputBodyStructuredUserPasswordRecoveryModel: !include schemas/methodBodies/user/inputUserPasswordRecovery.json
+  - InputBodyStructuredUserPreviewModel: !include schemas/methodBodies/user/inputUserPreview.json
+  - InputBodyStructuredUserPreviewRegisterModel: !include schemas/methodBodies/user/inputUserPreviewRegister.json
+
+traits:
+   - !include traits/authorizedPost.yaml
 
 #Article
 /article/sync:
@@ -179,3 +184,36 @@ schemas:
         body:
           application/json:
             example: !include examples/responses/user/outputUserPasswordRecovery.json
+
+/user/preview:
+  post:
+    description: Register device without user data for preview
+    body:
+      application/json:
+        schema: InputBodyStructuredUserPreviewModel
+        example: !include examples/methodBodies/user/inputUserPreview.json
+    responses:
+      204:
+        description: !include documentation/response_204.md
+      409:
+        description: !include documentation/response_409.md
+        body:
+            application/json:
+                example: !include examples/responses/user/response409User.json
+
+/user/preview/register:
+  post:
+    description: Register user data for preview user
+    is: [authorizedPost]
+    body:
+      application/json:
+        schema: InputBodyStructuredUserPreviewRegisterModel
+        example: !include examples/methodBodies/user/inputUserPreviewRegister.json
+    responses:
+      204:
+        description: !include documentation/response_204.md
+      409:
+        description: !include documentation/response_409.md
+        body:
+            application/json:
+                example: !include examples/responses/user/response409User.json
