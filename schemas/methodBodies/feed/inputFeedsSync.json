@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "appKey": {
+      "type": "string"
+    },
+    "feeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "api_id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "date_up": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "api_id",
+          "title",
+          "status",
+          "date_up"
+        ]
+      }
+    }
+  },
+  "required": [
+    "appKey",
+    "feeds"
+  ]
+}

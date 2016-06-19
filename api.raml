@@ -1,0 +1,181 @@
+#%RAML 0.8
+title: Newpsel
+version: v0.1
+baseUri: http://api.newpsel.com
+mediaType: application/json
+
+schemas:
+  - InputBodyStructuredArticlesSyncModel: !include schemas/methodBodies/article/inputArticlesUnreadSync.json
+  - InputBodyStructuredFeedAddModel: !include schemas/methodBodies/feed/inputFeedAdd.json
+  - InputBodyStructuredFeedsSyncModel: !include schemas/methodBodies/feed/inputFeedsSync.json
+  - InputBodyStructuredGCMAddModel: !include schemas/methodBodies/device/inputGCMAdd.json
+  - InputBodyStructuredSavedArticleAddModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAdd.json
+  - InputBodyStructuredSavedArticleAddSharedModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAddShared.json
+  - InputBodyStructuredSavedArticleSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleSync.json
+  - InputBodyStructuredSavedArticleDictationsSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleDictationsSync.json
+  - InputBodyStructuredTagListModel: !include schemas/methodBodies/tag/inputTagList.json
+  - InputBodyStructuredUserLoginModel: !include schemas/methodBodies/user/inputUserLogin.json
+  - InputBodyStructuredUserPasswordRecoveryModel: !include schemas/methodBodies/user/inputUserPasswordRecovery.json
+
+#Article
+/article/sync:
+  post:
+    description: Sync list of unread articles
+    body:
+      application/json:
+        schema: InputBodyStructuredArticlesSyncModel
+        example: !include examples/methodBodies/article/inputArticlesUnreadSync.json
+    responses:
+      200:
+        description: Return anread article
+        body:
+          application/json:
+            example: !include examples/responses/article/outputArticlesUnreadSync.json
+
+#Feed
+/feed/add:
+  post:
+    description: Subscribe user to the feed
+    body:
+      application/json:
+        schema: InputBodyStructuredFeedAddModel
+        example: !include examples/methodBodies/feed/inputFeedAdd.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/feed/outputFeedAdd.json
+
+/feed/sync:
+  post:
+    description: Sync list feeds
+    body:
+      application/json:
+        schema: InputBodyStructuredFeedsSyncModel
+        example: !include examples/methodBodies/feed/inputFeedsSync.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/feed/outputFeedsSync.json
+
+#GCM - Google Cloud Messaging
+/gcm/add_id:
+  post:
+    description: Sync list feeds
+    body:
+      application/json:
+        schema: InputBodyStructuredGCMAddModel
+        example: !include examples/methodBodies/device/inputGCMAdd.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/device/outputGCMAdd.json
+
+#Saved articles
+/saved_article/add_saved:
+  post:
+    description: Add saved articles
+    body:
+      application/json:
+        schema: InputBodyStructuredSavedArticleAddModel
+        example: !include examples/methodBodies/savedArticle/inputSavedArticleAdd.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/savedArticle/outputSavedArticleAdd.json
+
+/saved_article/add_shared:
+  post:
+    description: Add shared articles
+    body:
+      application/json:
+        schema: InputBodyStructuredSavedArticleAddSharedModel
+        example: !include examples/methodBodies/savedArticle/inputSavedArticleAddShared.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/savedArticle/outputSavedArticleAddShared.json
+
+/saved_article/sync:
+  post:
+    description: Sync saved articles
+    body:
+      application/json:
+        schema: InputBodyStructuredSavedArticleSyncModel
+        example: !include examples/methodBodies/savedArticle/inputSavedArticleSync.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/savedArticle/outputSavedArticleSync.json
+
+/saved_article/dictation/sync:
+  post:
+    description: Sync saved articles
+    body:
+      application/json:
+        schema: InputBodyStructuredSavedArticleDictationsSyncModel
+        example: !include examples/methodBodies/savedArticle/inputSavedArticleDictationsSync.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/savedArticle/outputSavedArticleDictationsSync.json
+
+#Tag
+/tag/sync:
+  post:
+    description: List of tags
+    body:
+      application/json:
+        schema: InputBodyStructuredTagListModel
+        example: !include examples/methodBodies/tag/inputTagList.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/tag/outputTagList.json
+
+#User
+/user/login:
+  post:
+    description: User login
+    body:
+      application/json:
+        schema: InputBodyStructuredUserLoginModel
+        example: !include examples/methodBodies/user/inputUserLogin.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/user/outputUserLogin.json
+
+/user/register:
+  post:
+    description: Register an user
+    body:
+      application/json:
+        schema: InputBodyStructuredUserLoginModel
+        example: !include examples/methodBodies/user/inputUserLogin.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/user/outputUserLogin.json
+
+/user/password_recovery:
+  post:
+    description: Request password recovery
+    body:
+      application/json:
+        schema: InputBodyStructuredUserPasswordRecoveryModel
+        example: !include examples/methodBodies/user/inputUserPasswordRecovery.json
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/user/outputUserPasswordRecovery.json

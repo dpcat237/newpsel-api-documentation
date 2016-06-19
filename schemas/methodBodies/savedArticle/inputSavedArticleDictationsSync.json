@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "appKey": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "items": {
+      "type": "object",
+      "properties": {
+        "is_unread": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "api_id": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "api_id"
+            ]
+          }
+        },
+        "is_read": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "api_id": {
+                "type": "integer"
+              },
+              "is_unread": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "api_id",
+              "is_unread"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "appKey",
+    "limit"
+  ]
+}

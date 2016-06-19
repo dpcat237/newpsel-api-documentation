@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "appKey": {
+      "type": "string"
+    },
+    "laterItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item_id": {
+            "type": "integer"
+          },
+          "label_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item_id",
+          "label_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "appKey",
+    "laterItems"
+  ]
+}

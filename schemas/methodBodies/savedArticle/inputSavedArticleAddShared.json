@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "appKey": {
+      "type": "string"
+    },
+    "sharedItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label_api_id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "label_api_id",
+          "title",
+          "text"
+        ]
+      }
+    }
+  },
+  "required": [
+    "appKey",
+    "sharedItems"
+  ]
+}
