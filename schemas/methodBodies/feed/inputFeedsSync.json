@@ -2,9 +2,6 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "appKey": {
-      "type": "string"
-    },
     "feeds": {
       "type": "array",
       "items": {
@@ -37,7 +34,6 @@
     }
   },
   "required": [
-    "appKey",
     "feeds"
   ]
 }

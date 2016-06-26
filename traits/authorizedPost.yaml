@@ -6,7 +6,7 @@ authorizedPost:
       required: true
       example: "application/json"
     device-key:
-      displayName: device-key
+      displayName: deviceId
       description: Device unique identifier
       required: true
       example: "[@Bfgdg324"

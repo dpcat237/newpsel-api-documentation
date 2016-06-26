@@ -2,9 +2,6 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "appKey": {
-      "type": "string"
-    },
     "sharedItems": {
       "type": "array",
       "items": {
@@ -32,7 +29,6 @@
     }
   },
   "required": [
-    "appKey",
     "sharedItems"
   ]
 }

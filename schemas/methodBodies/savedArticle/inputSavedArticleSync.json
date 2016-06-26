@@ -2,9 +2,6 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "appKey": {
-      "type": "string"
-    },
     "limit": {
       "type": "integer"
     },
@@ -61,7 +58,6 @@
     }
   },
   "required": [
-    "appKey",
     "later_items",
     "labels",
     "limit"

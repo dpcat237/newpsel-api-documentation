@@ -26,6 +26,7 @@ traits:
 /article/sync:
   post:
     description: Sync list of unread articles
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredArticlesSyncModel
@@ -41,19 +42,19 @@ traits:
 /feed/add:
   post:
     description: Subscribe user to the feed
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredFeedAddModel
         example: !include examples/methodBodies/feed/inputFeedAdd.json
     responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/responses/feed/outputFeedAdd.json
+      204:
+        description: !include documentation/response_204.md
 
 /feed/sync:
   post:
     description: Sync list feeds
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredFeedsSyncModel
@@ -64,10 +65,21 @@ traits:
           application/json:
             example: !include examples/responses/feed/outputFeedsSync.json
 
+/feed/sources:
+  get:
+    description: Get list of sources with categories
+    is: [authorizedPost]
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/feed/outputFeedSources.json
+
 #GCM - Google Cloud Messaging
 /gcm/add_id:
   post:
     description: Sync list feeds
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredGCMAddModel
@@ -82,6 +94,7 @@ traits:
 /saved_article/add_saved:
   post:
     description: Add saved articles
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredSavedArticleAddModel
@@ -95,6 +108,7 @@ traits:
 /saved_article/add_shared:
   post:
     description: Add shared articles
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredSavedArticleAddSharedModel
@@ -108,6 +122,7 @@ traits:
 /saved_article/sync:
   post:
     description: Sync saved articles
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredSavedArticleSyncModel
@@ -121,6 +136,7 @@ traits:
 /saved_article/dictation/sync:
   post:
     description: Sync saved articles
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredSavedArticleDictationsSyncModel
@@ -135,6 +151,7 @@ traits:
 /tag/sync:
   post:
     description: List of tags
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredTagListModel
@@ -154,10 +171,8 @@ traits:
         schema: InputBodyStructuredUserLoginModel
         example: !include examples/methodBodies/user/inputUserLogin.json
     responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/responses/user/outputUserLogin.json
+      204:
+        description: !include documentation/response_204.md
 
 /user/register:
   post:
@@ -167,10 +182,8 @@ traits:
         schema: InputBodyStructuredUserLoginModel
         example: !include examples/methodBodies/user/inputUserLogin.json
     responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/responses/user/outputUserLogin.json
+      204:
+        description: !include documentation/response_204.md
 
 /user/password_recovery:
   post:
@@ -180,10 +193,8 @@ traits:
         schema: InputBodyStructuredUserPasswordRecoveryModel
         example: !include examples/methodBodies/user/inputUserPasswordRecovery.json
     responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/responses/user/outputUserPasswordRecovery.json
+      204:
+        description: !include documentation/response_204.md
 
 /user/preview:
   post:
