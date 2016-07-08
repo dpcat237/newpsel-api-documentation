@@ -2,11 +2,15 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "deviceId": {
+    "feed_id": {
+      "type": "integer"
+    },
+    "feed_title": {
       "type": "string"
     }
   },
   "required": [
-    "deviceId"
+    "feed_id",
+    "feed_title"
   ]
 }

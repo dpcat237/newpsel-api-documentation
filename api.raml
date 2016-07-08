@@ -7,6 +7,8 @@ mediaType: application/json
 schemas:
   - InputBodyStructuredArticlesSyncModel: !include schemas/methodBodies/article/inputArticlesUnreadSync.json
   - InputBodyStructuredFeedAddModel: !include schemas/methodBodies/feed/inputFeedAdd.json
+  - InputBodyStructuredFeedDeleteModel: !include schemas/methodBodies/feed/inputFeedDelete.json
+  - InputBodyStructuredFeedEditModel: !include schemas/methodBodies/feed/inputFeedEdit.json
   - InputBodyStructuredFeedsSyncModel: !include schemas/methodBodies/feed/inputFeedsSync.json
   - InputBodyStructuredGCMAddModel: !include schemas/methodBodies/device/inputGCMAdd.json
   - InputBodyStructuredSavedArticleAddModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAdd.json
@@ -16,7 +18,6 @@ schemas:
   - InputBodyStructuredTagListModel: !include schemas/methodBodies/tag/inputTagList.json
   - InputBodyStructuredUserLoginModel: !include schemas/methodBodies/user/inputUserLogin.json
   - InputBodyStructuredUserPasswordRecoveryModel: !include schemas/methodBodies/user/inputUserPasswordRecovery.json
-  - InputBodyStructuredUserPreviewModel: !include schemas/methodBodies/user/inputUserPreview.json
   - InputBodyStructuredUserPreviewRegisterModel: !include schemas/methodBodies/user/inputUserPreviewRegister.json
 
 traits:
@@ -47,6 +48,30 @@ traits:
       application/json:
         schema: InputBodyStructuredFeedAddModel
         example: !include examples/methodBodies/feed/inputFeedAdd.json
+    responses:
+      204:
+        description: !include documentation/response_204.md
+
+/feed/edit:
+  post:
+    description: Edit feed
+    is: [authorizedPost]
+    body:
+      application/json:
+        schema: InputBodyStructuredFeedEditModel
+        example: !include examples/methodBodies/feed/inputFeedEdit.json
+    responses:
+      204:
+        description: !include documentation/response_204.md
+
+/feed/delete:
+  delete:
+    description: Unsubscribe from feed
+    is: [authorizedPost]
+    body:
+      application/json:
+        schema: InputBodyStructuredFeedDeleteModel
+        example: !include examples/methodBodies/feed/inputFeedDelete.json
     responses:
       204:
         description: !include documentation/response_204.md
@@ -166,6 +191,7 @@ traits:
 /user/login:
   post:
     description: User login
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredUserLoginModel
@@ -177,6 +203,7 @@ traits:
 /user/register:
   post:
     description: Register an user
+    is: [authorizedPost]
     body:
       application/json:
         schema: InputBodyStructuredUserLoginModel
@@ -199,10 +226,7 @@ traits:
 /user/preview:
   post:
     description: Register device without user data for preview
-    body:
-      application/json:
-        schema: InputBodyStructuredUserPreviewModel
-        example: !include examples/methodBodies/user/inputUserPreview.json
+    is: [authorizedPost]
     responses:
       204:
         description: !include documentation/response_204.md
