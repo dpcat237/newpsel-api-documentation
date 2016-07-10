@@ -17,6 +17,7 @@ schemas:
   - InputBodyStructuredSavedArticleSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleSync.json
   - InputBodyStructuredSavedArticleDictationsSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleDictationsSync.json
   - InputBodyStructuredTagListModel: !include schemas/methodBodies/tag/inputTagList.json
+  - InputBodyStructuredUserFeedbackModel: !include schemas/methodBodies/user/inputUserFeedback.json
   - InputBodyStructuredUserLoginModel: !include schemas/methodBodies/user/inputUserLogin.json
   - InputBodyStructuredUserPasswordRecoveryModel: !include schemas/methodBodies/user/inputUserPasswordRecovery.json
   - InputBodyStructuredUserPreviewRegisterModel: !include schemas/methodBodies/user/inputUserPreviewRegister.json
@@ -115,7 +116,7 @@ traits:
 
 /filter/add/list:
   get:
-    description: Add feeds to automatically add their articles to dictation (Premium)
+    description: Get user filters list (Premium)
     is: [authorizedPost]
     responses:
       200:
@@ -211,6 +212,17 @@ traits:
             example: !include examples/responses/tag/outputTagList.json
 
 #User
+/user/feedback:
+  post:
+    description: Add a feedback
+    body:
+      application/json:
+        schema: InputBodyStructuredUserFeedbackModel
+        example: !include examples/methodBodies/user/inputUserFeedback.json
+    responses:
+      204:
+        description: !include documentation/response_204.md
+
 /user/login:
   post:
     description: User login
