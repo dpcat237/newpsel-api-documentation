@@ -102,7 +102,7 @@ traits:
             example: !include examples/responses/feed/outputFeedSources.json
 
 /filter/add/feed-to-dictation:
-  get:
+  post:
     description: Add feeds to automatically add their articles to dictation (Premium)
     is: [authorizedPost]
     body:
@@ -112,6 +112,16 @@ traits:
     responses:
       204:
         description: !include documentation/response_204.md
+
+/filter/add/list:
+  get:
+    description: Add feeds to automatically add their articles to dictation (Premium)
+    is: [authorizedPost]
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/responses/filter/outputFilterList.json
 
 #GCM - Google Cloud Messaging
 /gcm/add_id:
