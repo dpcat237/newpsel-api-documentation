@@ -10,6 +10,7 @@ schemas:
   - InputBodyStructuredFeedDeleteModel: !include schemas/methodBodies/feed/inputFeedDelete.json
   - InputBodyStructuredFeedEditModel: !include schemas/methodBodies/feed/inputFeedEdit.json
   - InputBodyStructuredFeedsSyncModel: !include schemas/methodBodies/feed/inputFeedsSync.json
+  - InputBodyStructuredFilterFeedsToDictationModel: !include schemas/methodBodies/filter/inputFilterFeedsToDictation.json
   - InputBodyStructuredGCMAddModel: !include schemas/methodBodies/device/inputGCMAdd.json
   - InputBodyStructuredSavedArticleAddModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAdd.json
   - InputBodyStructuredSavedArticleAddSharedModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAddShared.json
@@ -99,6 +100,18 @@ traits:
         body:
           application/json:
             example: !include examples/responses/feed/outputFeedSources.json
+
+/filter/add/feed-to-dictation:
+  get:
+    description: Add feeds to automatically add their articles to dictation (Premium)
+    is: [authorizedPost]
+    body:
+      application/json:
+        schema: InputBodyStructuredFilterFeedsToDictationModel
+        example: !include examples/methodBodies/filter/inputFilterFeedsToDictation.json
+    responses:
+      204:
+        description: !include documentation/response_204.md
 
 #GCM - Google Cloud Messaging
 /gcm/add_id:
