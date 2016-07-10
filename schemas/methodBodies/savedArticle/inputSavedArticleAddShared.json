@@ -7,7 +7,7 @@
       "items": {
         "type": "object",
         "properties": {
-          "label_api_id": {
+          "tag_api_id": {
             "type": "integer"
           },
           "title": {
@@ -21,7 +21,7 @@
           }
         },
         "required": [
-          "label_api_id",
+          "tag_api_id",
           "title",
           "text"
         ]

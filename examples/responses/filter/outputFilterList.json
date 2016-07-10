@@ -1,7 +1,7 @@
 [
   {
    "id": "1",
-   "type": "to.label",
+   "type": "feed_to_tag",
    "tag_id": 4,
    "feeds": [2, 3, 7]
  }

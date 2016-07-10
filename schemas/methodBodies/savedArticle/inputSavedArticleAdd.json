@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
-    "laterItems": {
+    "tagItems": {
       "type": "array",
       "items": {
         "type": "object",
@@ -10,18 +10,18 @@
           "item_id": {
             "type": "integer"
           },
-          "label_id": {
+          "tag_id": {
             "type": "integer"
           }
         },
         "required": [
           "item_id",
-          "label_id"
+          "tag_id"
         ]
       }
     }
   },
   "required": [
-    "laterItems"
+    "tagItems"
   ]
 }

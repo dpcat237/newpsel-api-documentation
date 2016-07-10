@@ -5,7 +5,7 @@
     "limit": {
       "type": "integer"
     },
-    "later_items": {
+    "tag_items": {
       "type": "object",
       "properties": {
         "is_unread": {
@@ -42,7 +42,7 @@
         }
       }
     },
-    "labels": {
+    "tags": {
       "type": "array",
       "items": {
         "type": "object",
@@ -58,8 +58,8 @@
     }
   },
   "required": [
-    "later_items",
-    "labels",
+    "tag_items",
+    "tags",
     "limit"
   ]
 }
