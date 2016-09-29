@@ -13,12 +13,12 @@
           "items": {
             "type": "object",
             "properties": {
-              "id": {
+              "api_id": {
                 "type": "integer"
               }
             },
             "required": [
-              "id"
+              "api_id"
             ]
           }
         },
@@ -27,7 +27,7 @@
           "items": {
             "type": "object",
             "properties": {
-              "ui_id": {
+              "api_id": {
                 "type": "integer"
               },
               "is_stared": {
@@ -38,7 +38,7 @@
               }
             },
             "required": [
-              "ui_id",
+              "api_id",
               "is_stared",
               "is_unread"
             ]
