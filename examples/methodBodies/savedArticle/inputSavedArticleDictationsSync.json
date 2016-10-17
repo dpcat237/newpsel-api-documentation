@@ -1,16 +1,13 @@
 {
-    "items":{
-      "is_unread": [
-        {
-          "api_id" : 123
-        }
-      ],
-      "is_read": [
-        {
-          "api_id": 231,
-          "is_unread": false
-        }
-      ]
+  "limit": 50,
+  "items": [
+    {
+      "api_id": 231,
+      "is_unread": false
     },
-    "limit":25
+    {
+      "api_id": 212,
+      "is_unread": true
+    }
+  ]
 }

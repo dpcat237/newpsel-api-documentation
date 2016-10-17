@@ -29,6 +29,7 @@
     }
   },
   "required": [
+    "items",
     "limit"
   ]
 }

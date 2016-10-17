@@ -6,44 +6,26 @@
       "type": "integer"
     },
     "items": {
-      "type": "object",
-      "properties": {
-        "is_unread": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "api_id": {
-                "type": "integer"
-              }
-            },
-            "required": [
-              "api_id"
-            ]
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "api_id": {
+            "type": "integer"
+          },
+          "is_unread": {
+            "type": "boolean"
           }
         },
-        "is_read": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "api_id": {
-                "type": "integer"
-              },
-              "is_unread": {
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "api_id",
-              "is_unread"
-            ]
-          }
-        }
+        "required": [
+          "api_id",
+          "is_unread"
+        ]
       }
     }
   },
   "required": [
+    "items",
     "limit"
   ]
 }

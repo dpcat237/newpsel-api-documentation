@@ -1,18 +1,15 @@
 {
   "limit": 50,
-  "tag_items": {
-    "is_unread": [
-      {
-        "api_id" : 123
-      }
-    ],
-    "is_read": [
-      {
-        "api_id": 231,
-        "is_unread": false
-      }
-    ]
-  },
+  "tag_items": [
+    {
+      "api_id": 231,
+      "is_unread": false
+    },
+    {
+      "api_id": 212,
+      "is_unread": true
+    }
+  ],
   "tags": [
       {
         "api_id" : 31
