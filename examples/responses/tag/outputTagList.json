@@ -1,20 +1,12 @@
 [
   {
-    "api_id": "1",
+    "tag_id": "1",
     "name": "Listen",
-    "date_up": 1406627684,
-    "status": 2
+    "date_up": 1406627684
   },
   {
-    "api_id": "6",
+    "tag_id": "6",
     "name": "Watch",
-    "date_up": 1408221746,
-    "status": 2
-  },
-  {
-    "api_id": "7",
-    "name": "Apps",
-    "date_up": 1421609844,
-    "status": 2
+    "date_up": 1408221746
   }
 ]

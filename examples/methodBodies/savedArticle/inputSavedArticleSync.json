@@ -1,18 +1,12 @@
 {
-  "limit": 50,
-  "tag_items": [
+	"saved_articles":[
+  	{
+        "article_id" : 231,
+        "tags":[1, 10]
+  	},
     {
-      "api_id": 231,
-      "is_unread": false
-    },
-    {
-      "api_id": 212,
-      "is_unread": true
-    }
-  ],
-  "tags": [
-      {
-        "api_id" : 31
-      }
-  ]
+        "article_id" : 212,
+        "tags":[6]
+  	}
+	]
 }

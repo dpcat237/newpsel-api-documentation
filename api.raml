@@ -1,29 +1,28 @@
-#%RAML 0.8
+#%RAML 1.0
 title: Newpsel
 version: v1
 baseUri: http://api.newpsel.com
 mediaType: application/json
 
-schemas:
-  - InputBodyStructuredArticlesSyncModel: !include schemas/methodBodies/article/inputArticlesUnreadSync.json
-  - InputBodyStructuredFeedAddModel: !include schemas/methodBodies/feed/inputFeedAdd.json
-  - InputBodyStructuredFeedDeleteModel: !include schemas/methodBodies/feed/inputFeedDelete.json
-  - InputBodyStructuredFeedEditModel: !include schemas/methodBodies/feed/inputFeedEdit.json
-  - InputBodyStructuredFeedsSyncModel: !include schemas/methodBodies/feed/inputFeedsSync.json
-  - InputBodyStructuredFilterFeedsToDictationModel: !include schemas/methodBodies/filter/inputFilterFeedsToDictation.json
-  - InputBodyStructuredGCMAddModel: !include schemas/methodBodies/device/inputGCMAdd.json
-  - InputBodyStructuredSavedArticleAddModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAdd.json
-  - InputBodyStructuredSavedArticleAddSharedModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAddShared.json
-  - InputBodyStructuredSavedArticleSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleSync.json
-  - InputBodyStructuredSavedArticleDictationsSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleDictationsSync.json
-  - InputBodyStructuredTagListModel: !include schemas/methodBodies/tag/inputTagList.json
-  - InputBodyStructuredUserFeedbackModel: !include schemas/methodBodies/user/inputUserFeedback.json
-  - InputBodyStructuredUserLoginModel: !include schemas/methodBodies/user/inputUserLogin.json
-  - InputBodyStructuredUserPasswordRecoveryModel: !include schemas/methodBodies/user/inputUserPasswordRecovery.json
-  - InputBodyStructuredUserPreviewRegisterModel: !include schemas/methodBodies/user/inputUserPreviewRegister.json
-
 traits:
-   - !include traits/authorizedPost.yaml
+  authorizedPost: !include traits/authorizedPost.raml
+
+schemas:
+  InputBodyStructuredArticlesSyncModel: !include schemas/methodBodies/article/inputArticlesUnreadSync.json
+  InputBodyStructuredFeedAddModel: !include schemas/methodBodies/feed/inputFeedAdd.json
+  InputBodyStructuredFeedDeleteModel: !include schemas/methodBodies/feed/inputFeedDelete.json
+  InputBodyStructuredFeedEditModel: !include schemas/methodBodies/feed/inputFeedEdit.json
+  InputBodyStructuredFeedsSyncModel: !include schemas/methodBodies/feed/inputFeedsSync.json
+  InputBodyStructuredFilterFeedsToDictationModel: !include schemas/methodBodies/filter/inputFilterFeedsToDictation.json
+  InputBodyStructuredGCMAddModel: !include schemas/methodBodies/device/inputGCMAdd.json
+  InputBodyStructuredSavedArticleAddSharedModel: !include schemas/methodBodies/savedArticle/inputSavedArticleAddShared.json
+  InputBodyStructuredSavedArticleListModel: !include schemas/methodBodies/savedArticle/inputSavedArticleList.json
+  InputBodyStructuredSavedArticleSyncModel: !include schemas/methodBodies/savedArticle/inputSavedArticleSync.json
+  InputBodyStructuredTagListModel: !include schemas/methodBodies/tag/inputTagList.json
+  InputBodyStructuredUserFeedbackModel: !include schemas/methodBodies/user/inputUserFeedback.json
+  InputBodyStructuredUserLoginModel: !include schemas/methodBodies/user/inputUserLogin.json
+  InputBodyStructuredUserPasswordRecoveryModel: !include schemas/methodBodies/user/inputUserPasswordRecovery.json
+  InputBodyStructuredUserPreviewRegisterModel: !include schemas/methodBodies/user/inputUserPreviewRegister.json
 
 #Article
 /article/sync:
@@ -36,7 +35,7 @@ traits:
         example: !include examples/methodBodies/article/inputArticlesUnreadSync.json
     responses:
       200:
-        description: Return anread article
+        description: This method returns unread article.
         body:
           application/json:
             example: !include examples/responses/article/outputArticlesUnreadSync.json
@@ -52,7 +51,7 @@ traits:
         example: !include examples/methodBodies/feed/inputFeedAdd.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /feed/edit:
   post:
@@ -64,7 +63,7 @@ traits:
         example: !include examples/methodBodies/feed/inputFeedEdit.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /feed/delete:
   delete:
@@ -76,7 +75,7 @@ traits:
         example: !include examples/methodBodies/feed/inputFeedDelete.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /feed/sync:
   post:
@@ -112,7 +111,7 @@ traits:
         example: !include examples/methodBodies/filter/inputFilterFeedsToDictation.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /filter/add/list:
   get:
@@ -139,21 +138,6 @@ traits:
           application/json:
             example: !include examples/responses/device/outputGCMAdd.json
 
-#Saved articles
-/saved_article/add_saved:
-  post:
-    description: Add saved articles
-    is: [authorizedPost]
-    body:
-      application/json:
-        schema: InputBodyStructuredSavedArticleAddModel
-        example: !include examples/methodBodies/savedArticle/inputSavedArticleAdd.json
-    responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/responses/savedArticle/outputSavedArticleAdd.json
-
 /saved_article/add_shared:
   post:
     description: Add shared articles
@@ -163,14 +147,27 @@ traits:
         schema: InputBodyStructuredSavedArticleAddSharedModel
         example: !include examples/methodBodies/savedArticle/inputSavedArticleAddShared.json
     responses:
+      204:
+        description: !include documentation/responses/response_204.md
+
+/saved_article/list:
+  post:
+    description: !include documentation/methods/savedArticle/list.md
+    is: [authorizedPost]
+    body:
+      application/json:
+        schema: InputBodyStructuredSavedArticleListModel
+        example: !include examples/methodBodies/savedArticle/inputSavedArticleList.json
+    responses:
       200:
         body:
           application/json:
-            example: !include examples/responses/savedArticle/outputSavedArticleAddShared.json
+            example: !include examples/responses/savedArticle/outputSavedArticleList.json
 
+#Saved articles
 /saved_article/sync:
   post:
-    description: Sync saved articles
+    description: !include documentation/methods/savedArticle/sync.md
     is: [authorizedPost]
     body:
       application/json:
@@ -182,24 +179,10 @@ traits:
           application/json:
             example: !include examples/responses/savedArticle/outputSavedArticleSync.json
 
-/saved_article/dictation/sync:
-  post:
-    description: Sync saved articles
-    is: [authorizedPost]
-    body:
-      application/json:
-        schema: InputBodyStructuredSavedArticleDictationsSyncModel
-        example: !include examples/methodBodies/savedArticle/inputSavedArticleDictationsSync.json
-    responses:
-      200:
-        body:
-          application/json:
-            example: !include examples/responses/savedArticle/outputSavedArticleDictationsSync.json
-
 #Tag
 /tag/sync:
   post:
-    description: List of tags
+    description: !include documentation/methods/tag/list.md
     is: [authorizedPost]
     body:
       application/json:
@@ -221,7 +204,7 @@ traits:
         example: !include examples/methodBodies/user/inputUserFeedback.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /user/login:
   post:
@@ -233,7 +216,7 @@ traits:
         example: !include examples/methodBodies/user/inputUserLogin.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /user/register:
   post:
@@ -245,7 +228,7 @@ traits:
         example: !include examples/methodBodies/user/inputUserLogin.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /user/password_recovery:
   post:
@@ -256,7 +239,7 @@ traits:
         example: !include examples/methodBodies/user/inputUserPasswordRecovery.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
 
 /user/preview:
   post:
@@ -264,9 +247,9 @@ traits:
     is: [authorizedPost]
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
       409:
-        description: !include documentation/response_409.md
+        description: !include documentation/responses/response_409.md
         body:
             application/json:
                 example: !include examples/responses/user/response409User.json
@@ -281,9 +264,9 @@ traits:
         example: !include examples/methodBodies/user/inputUserPreviewRegister.json
     responses:
       204:
-        description: !include documentation/response_204.md
+        description: !include documentation/responses/response_204.md
       409:
-        description: !include documentation/response_409.md
+        description: !include documentation/responses/response_409.md
         body:
             application/json:
                 example: !include examples/responses/user/response409User.json

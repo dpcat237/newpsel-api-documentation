@@ -7,27 +7,19 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "api_id": {
+          "tag_id": {
             "type": "integer"
           },
           "name": {
             "type": "string"
-          },
-          "status": {
-            "type": "integer"
           },
           "date_up": {
             "type": "integer"
           }
         },
         "required": [
-          "id",
-          "api_id",
+          "tag_id",
           "name",
-          "status",
           "date_up"
         ]
       }

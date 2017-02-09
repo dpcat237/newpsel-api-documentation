@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "integer"
+    },
+    "saved_articles": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "return_tags": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": [
+    "saved_articles",
+    "return_tags",
+    "limit"
+  ]
+}

@@ -1,28 +1,16 @@
 [
   {
-    "api_id": "53467",
-    "item_id": "351302",
-    "feed_id": "2",
-    "tag_id": "1418",
-    "is_unread": true,
-    "date_add": 1465622119,
-    "language": "en",
-    "item_language": null,
-    "link": "http://feedproxy.google.com/~r/Techcrunch/~3/Fm1IjoW9Xqc/",
-    "title": "Tesla’s weird week",
-    "content": "Contant"
+    "article_id": 231,
+    "tags": [
+      "1",
+      "10"
+    ]
   },
   {
-    "api_id": "52062",
-    "item_id": "327980",
-    "feed_id": "1",
-    "tag_id": "1418",
-    "is_unread": true,
-    "date_add": 1457913654,
-    "language": "es",
-    "item_language": null,
-    "link": "http://feedproxy.google.com/~r/WwwhatsNew/~3/2CWYNIHmNWI/",
-    "title": "La tabla periódica de los plugins más populares de WordPress",
-    "content": "Contant"
+    "article_id": 212,
+    "tags": [
+      "1",
+      "6"
+    ]
   }
 ]

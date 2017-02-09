@@ -5,12 +5,12 @@
     "limit": {
       "type": "integer"
     },
-    "items": {
+    "articles": {
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "api_id": {
+          "article_id": {
             "type": "integer"
           },
           "is_stared": {
@@ -21,7 +21,7 @@
           }
         },
         "required": [
-          "api_id",
+          "article_id",
           "is_stared",
           "is_unread"
         ]
@@ -29,7 +29,7 @@
     }
   },
   "required": [
-    "items",
+    "articles",
     "limit"
   ]
 }
